@@ -38,18 +38,21 @@ void dr4bControl(int stateUp, int stateDown, int cond)
 	}
 }
 
-void clawControl(int stateIn){
-	if (stateIn == 1)
+void clawControl(int stateIn, int stateOut){
+	if (stateIn == 1 && stateOut == 0)
 		claw = 80;
 
-	else if (stateIn == 0)
+	else if (stateIn == 0 && stateOut == 1)
+		claw = -63;
+
+  else if (stateIn == 0 && stateOut == 0)
 		claw = 0;
 }
 
 void opcontrol() {
 	while (true) {
-		dr4bControl(master.get_digital(DIGITAL_R1), master.get_digital(DIGITAL_R2), master.get_digital(DIGITAL_L1));
-		clawControl(master.get_digital(DIGITAL_L2));
+		dr4bControl(master.get_digital(DIGITAL_R1), master.get_digital(DIGITAL_R2), 0);
+		clawControl(master.get_digital(DIGITAL_L2),  master.get_digital(DIGITAL_L1));
 		leftFront = master.get_analog(ANALOG_LEFT_Y);
 		leftBack = master.get_analog(ANALOG_LEFT_Y);
 		rightFront = master.get_analog(ANALOG_RIGHT_Y);
