@@ -43,4 +43,18 @@ void clawControl(int stateIn, int stateOut){
 		claw = 0;
 }
 
+void dr4bAngle(int angle){
+	int point; int power; int scalar;
+	if(angle<point){
+		power = scalar*(angle/point);
+		/*dr4bL.set(power);
+		dr4bR.set(power);*/
+		dr4b_left = power;
+		dr4b_right = power;
+	}
+	else{
+		
+	}
+}
+
 #endif
