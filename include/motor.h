@@ -15,9 +15,14 @@ pros::Motor rightBack(20, true);
 pros::Motor leftFront(1);
 pros::Motor leftBack(11);
 
-
+//Below this line is okapi above is old motor stuff
 okapi:: MotorGroup right({11_rmtr, 20_rmtr});
 okapi:: MotorGroup left({1, 10});
+
+auto rightEB = IntegratedEncoder(11);
+auto leftEF = IntegratedEncoder(1);
+auto rightEF = IntegratedEncoder(20);
+auto leftEB = IntegratedEncoder(10);
 
 const auto WHEEL_DIAMETER = 4.25_in;
 const auto CHASSIS_WIDTH = 13.5_in;
@@ -31,6 +36,7 @@ Motor dr4bR = 16;
 auto dr4bLe = IntegratedEncoder(15);
 auto dr4bRe = IntegratedEncoder(16);
 
+
 // Arm related objects
 //ADIButton armLimitSwitch('H');
 ControllerButton armUpButton(ControllerDigital::R1);
@@ -39,5 +45,7 @@ ControllerButton clawIn(ControllerDigital::L1);
 ControllerButton clawOut(ControllerDigital::L2);
 Motor armMotor = 8_rmtr;
 
+//most simple PID initiation (don't know whether to use std and dont know whether to use create or createPTR)
+auto PIDsimple = ChassisControllerFactory::create(left, right, AbstractMotor::gearset::green,{WHEEL_DIAMETER, CHASSIS_WIDTH});
 
 #endif
