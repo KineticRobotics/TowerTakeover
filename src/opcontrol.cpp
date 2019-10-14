@@ -13,7 +13,8 @@ void opcontrol() {
 Controller masterController;
 
 
-
+dr4bL.setBrakeMode(AbstractMotor::brakeMode::hold);
+dr4bR.setBrakeMode(AbstractMotor::brakeMode::hold);
 while (true) {
   // Tank drive with left and right sticks
   chassis.tank(masterController.getAnalog(ControllerAnalog::leftY),
