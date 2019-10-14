@@ -18,38 +18,36 @@ pros::Motor leftBack(11);
 */
 
 //Below this line is okapi above is old motor stuff
-okapi:: MotorGroup right({10, 20});
-okapi:: MotorGroup left({1, 11});
+okapi:: MotorGroup right2({10, 20});
+okapi:: MotorGroup left2({1_rmtr, 11_rmtr});
 
-
-auto rightEB = IntegratedEncoder(11);
-auto leftEF = IntegratedEncoder(1);
-auto rightEF = IntegratedEncoder(20);
-auto leftEB = IntegratedEncoder(10);
+auto rightEB2 = IntegratedEncoder(11);
+auto leftEF2 = IntegratedEncoder(1);
+auto rightEF2 = IntegratedEncoder(20);
+auto leftEB2 = IntegratedEncoder(10);
 
 const auto WHEEL_DIAMETER = 4.25_in;
 const auto CHASSIS_WIDTH = 13.5_in;
-auto chassis = ChassisControllerFactory::create(
-  left, right,
+auto chassis2 = ChassisControllerFactory::create(
+  left2, right2,
   AbstractMotor::gearset::green,
   {WHEEL_DIAMETER, CHASSIS_WIDTH}
 );
-Motor dr4bL = 15;
-Motor dr4bR = 16;
-Motor claw = 8;
-auto dr4bLe = IntegratedEncoder(15);
-auto dr4bRe = IntegratedEncoder(16);
-
+Motor dr4bL2 = 15;
+Motor dr4bR2 = 16;
+Motor claw2 = 8;
+auto dr4bLe2 = IntegratedEncoder(15);
+auto dr4bRe2 = IntegratedEncoder(16);
 
 // Arm related objects
 //ADIButton armLimitSwitch('H');
-ControllerButton armUpButton(ControllerDigital::R1);
-ControllerButton armDownButton(ControllerDigital::R2);
-ControllerButton clawIn(ControllerDigital::L1);
-ControllerButton clawOut(ControllerDigital::L2);
-Motor armMotor = 8_rmtr;
+ControllerButton armUpButton2(ControllerDigital::R1);
+ControllerButton armDownButton2(ControllerDigital::R2);
+ControllerButton clawIn2(ControllerDigital::L1);
+ControllerButton clawOut2(ControllerDigital::L2);
+Motor armMotor2 = 8_rmtr;
 
 //most simple PID initiation (don't know whether to use std and dont know whether to use create or createPTR)
-auto PIDsimple = ChassisControllerFactory::create(left, right, AbstractMotor::gearset::green,{WHEEL_DIAMETER, CHASSIS_WIDTH});
+auto PIDsimple2 = ChassisControllerFactory::create(left2, right2, AbstractMotor::gearset::green,{WHEEL_DIAMETER, CHASSIS_WIDTH});
 
 #endif
