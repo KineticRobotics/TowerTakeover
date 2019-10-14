@@ -3,8 +3,9 @@
 #include "motorcopy.h"
 
 void autonomous() {
-  PIDsimple.moveDistance(24_in);
-
+  //PIDsimple2.moveDistance(24_in);
+  right2.setReversed(true);
+  PIDsimple2.moveDistance(24_in);
   /* NOT TESTED; PLAN FOR FIRST GAME
   dr4bL.moveVelocity(-200); //move dr4b up
   dr4bR.moveVelocity(200);
