@@ -1,15 +1,26 @@
-#include "main.h"
 
-//#include "motor.h"
+//#include "okapi/api.hpp"
+#include "main.h"
 #include "opfunc.h"
+using namespace okapi;
+
+
 
 void opcontrol() {
-	while (true) {
-		dr4bControl(master.get_digital(DIGITAL_R1), master.get_digital(DIGITAL_R2), 0);
-		clawControl(master.get_digital(DIGITAL_L2),  master.get_digital(DIGITAL_L1));
-		leftFront = master.get_analog(ANALOG_LEFT_Y);
-		leftBack = master.get_analog(ANALOG_LEFT_Y);
-		rightFront = master.get_analog(ANALOG_RIGHT_Y);
-		rightBack = master.get_analog(ANALOG_RIGHT_Y);
-	}
+
+// Joystick to read analog values for tank or arcade control
+// Master controller by default
+Controller masterController;
+
+
+
+while (true) {
+  // Tank drive with left and right sticks
+  chassis.arcade(masterController.getAnalog(ControllerAnalog::leftX),
+             masterController.getAnalog(ControllerAnalog::leftY));
+  dr4b.arcade(0, -masterController.getAnalog(ControllerAnalog::rightY));
+  //dr4bControl(armUpButton.isPressed(), armDownButton.isPressed(), 0);
+  clawControl(clawIn.isPressed(), clawOut.isPressed());
+  pros::delay(10);
+}
 }
