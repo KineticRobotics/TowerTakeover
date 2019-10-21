@@ -1,7 +1,7 @@
 #include "main.h"
 #include "okapi/api.hpp"
-#ifndef _PROS_MOTOR_H_
-#define _PROS_MOTOR_H
+#ifndef _PROS_MOTOR_COPY_H_
+#define _PROS_MOTOR_COPY_H
 
 using namespace okapi;
 
@@ -19,7 +19,8 @@ pros::Motor leftBack(11);
 
 //Below this line is okapi above is old motor stuff
 okapi:: MotorGroup right2({10, 20});
-okapi:: MotorGroup left2({1_rmtr, 11_rmtr});
+okapi:: MotorGroup left2({1, 11});
+
 
 auto rightEB2 = IntegratedEncoder(11);
 auto leftEF2 = IntegratedEncoder(1);
@@ -38,6 +39,7 @@ Motor dr4bR2 = 16;
 Motor claw2 = 8;
 auto dr4bLe2 = IntegratedEncoder(15);
 auto dr4bRe2 = IntegratedEncoder(16);
+auto dr4b2 = okapi::MotorGroup({15, 16});
 
 // Arm related objects
 //ADIButton armLimitSwitch('H');
@@ -49,5 +51,7 @@ Motor armMotor2 = 8_rmtr;
 
 //most simple PID initiation (don't know whether to use std and dont know whether to use create or createPTR)
 auto PIDsimple2 = ChassisControllerFactory::create(left2, right2, AbstractMotor::gearset::green,{WHEEL_DIAMETER, CHASSIS_WIDTH});
+
+auto PID = ChassisControllerFactory::create(left2, right2, IterativePosPIDController::Gains{0.001, 0.0, 0.0}, IterativePosPIDController::Gains{0.005, 0, 0.0}, IterativePosPIDController::Gains{0.005, 0, 0.0}, AbstractMotor::gearset::green, {WHEEL_DIAMETER, CHASSIS_WIDTH});
 
 #endif
