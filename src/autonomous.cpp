@@ -1,11 +1,20 @@
 
 #include "main.h"
-#include "motorcopy.h"
-
+#include "autofunc.h"
+using namespace okapi;
 void autonomous() {
-  //PIDsimple2.moveDistance(24_in);
+  dr4bL2.setReversed(true);
   right2.setReversed(true);
-  PIDsimple2.moveDistance(24_in);
+  //dr4bControl(63, 1000);
+  releaseClaw();
+  pros::lcd::set_text(1, "Exited");
+  pros::delay(100);
+  dr4bControl(4.0);
+  pros::lcd::set_text(1,"exit func 2");
+  pros::delay(2000);
+  //PID.moveDistance(24_in);
+  //pros::lcd::set_text(1, "exit func 3");
+
   /* NOT TESTED; PLAN FOR FIRST GAME
   dr4bL.moveVelocity(-200); //move dr4b up
   dr4bR.moveVelocity(200);
