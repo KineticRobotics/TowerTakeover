@@ -13,15 +13,18 @@ void autonomous()
   dr4bControl(4.0);
   pros::lcd::set_text(1, "exit func 2");
   pros::delay(2000);
-  
-  PIDsimple2.moveDistance(24_in);
-  PIDsimple2.autotune();
+
+
+
+  PIDsimple2.moveDistance(24_in*1.106);
+  pros::lcd::set_text(1, "exit PID");
+  //PIDsimple2.autotune();
 
   //pros::lcd::set_text(1, "exit func 3");
 
   /* NOT TESTED; PLAN FOR FIRST GAME
-  dr4bL.moveVelocity(-200); //move dr4b up
-  dr4bR.moveVelocity(200);
+  dr4bL2.moveVelocity(-200); //move dr4b up
+  dr4bR2.moveVelocity(200);
   pros::delay(1000);
 
   claw2 = 30;  //open claw a little
