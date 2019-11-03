@@ -14,18 +14,15 @@ void autonomous()
   pros::lcd::set_text(1, "exit func 2");
   pros::delay(500);
 
-  dr4bControl(-4.0);
-  claw2.moveVelocity(127);
-  pros::delay(150);
-  claw2.moveVelocity(0);
-  claw2.moveVelocity(-127);
-  pros::delay(150);
-  claw2.moveVelocity(0);
-
   dr4bControl(4.0);
-  PIDsimple2.moveDistance(24_in);
-
-
+  //PIDsimple2.moveDistanceAsync(25_in);
+  //polynomial(25.0, 127);
+  //PIDsimple2.turnAngle(90_deg);
+  polyTurn(180, 127, .95);
+  polyTurn(90, 100, 1);
+  pros::lcd::set_text(1, "Exit PID");
+  dr4bControl(10.0);
+  
 /*
   //PIDsimple2.moveDistance(24_in*1.106);
   PIDsimple2.moveDistance(24_in);
