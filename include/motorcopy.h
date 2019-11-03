@@ -58,11 +58,13 @@ auto controller = IterativeControllerFactory::velPID(ikP, ikI, ikD);
 //auto PIDsimple2 = ChassisControllerFactory::create(controller, left2, right2, AbstractMotor::gearset::green,{WHEEL_DIAMETER, CHASSIS_WIDTH});
 auto PIDsimple2 = ChassisControllerFactory::create(
   left2, right2,
-  IterativePosPIDController::Gains{0.0085, 0, 0.00025},
-  IterativePosPIDController::Gains{0.001, 0, 0.0001},
-  IterativePosPIDController::Gains{0.001, 0, 0.0001},
+  IterativePosPIDController::Gains{0.00125, 0, 0.000},
+  IterativePosPIDController::Gains{0.00125, 0.0, 0.000},
+  IterativePosPIDController::Gains{0.00125, 0.0, 0.000},
   AbstractMotor::gearset::green,
   {WHEEL_DIAMETER, CHASSIS_WIDTH}
 );
+
+ADIGyro gyro = ADIGyro('A', .1);
 
 #endif
