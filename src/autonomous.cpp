@@ -8,20 +8,29 @@ void autonomous()
   right2.setReversed(true);
   //dr4bControl(63, 1000);
   releaseClaw();
-  pros::lcd::set_text(1, "Exited");
   pros::delay(100);
   dr4bControl(4.0);
-  pros::lcd::set_text(1, "exit func 2");
-  pros::delay(500);
+  pros::delay(1500);
 
-  dr4bControl(4.0);
+  claw2.moveVelocity(127);
+  polynomial(6, 80);
+  claw2.moveVelocity(0);
+  polynomial(20, 127);
+  dr4bControl(20.0);
+  polynomial(3, 80);
+  claw2.moveVelocity(127);
+  dr4bControl(-10);
+  claw2.moveVelocity(0);
+  //polyTurn(140, 69)
+  //polynomial();
+  //dr4bControl(4.0);
   //PIDsimple2.moveDistanceAsync(25_in);
   //polynomial(25.0, 127);
   //PIDsimple2.turnAngle(90_deg);
-  polyTurn(180, 127, .95);
-  polyTurn(90, 100, 1);
-  pros::lcd::set_text(1, "Exit PID");
-  dr4bControl(10.0);
+  //polyTurn(180, 127, .95);
+  //polyTurn(90, 100, 1);
+  //pros::lcd::set_text(1, "Exit PID");
+  //dr4bControl(10.0);
   
 /*
   //PIDsimple2.moveDistance(24_in*1.106);
