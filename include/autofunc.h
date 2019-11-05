@@ -12,6 +12,15 @@ void dr4bControl(float inches)
     dr4bR2.moveRelative(degrees, 70);
 }
 
+void dr4bControl2(float inches)
+{
+    float inchesUp = 7.0 * inches / 2.0;
+    float radians = inchesUp / BAR;
+    double degrees = radians * (180 / 3.14159265);
+    dr4bL2.moveRelative(degrees, 40);
+    dr4bR2.moveRelative(degrees, 40);
+}
+
 void releaseClaw()
 {
     claw2.moveVelocity(-127);
