@@ -4,23 +4,38 @@
 using namespace okapi;
 void autonomous()
 {
+  dr4bL2.setBrakeMode(AbstractMotor::brakeMode::hold);
+  dr4bR2.setBrakeMode(AbstractMotor::brakeMode::hold);
   dr4bL2.setReversed(true);
   right2.setReversed(true);
   //dr4bControl(63, 1000);
   releaseClaw();
   pros::delay(100);
-  dr4bControl(4.0);
+  //dr4bControl(4.0);
   pros::delay(1500);
-
-  claw2.moveVelocity(127);
-  polynomial(6, 80);
+  polynomial(3, 50);
+  dr4bControl(10.0);
+  pros::delay(1000);
+  dr4bControl(-8.0);
+  pros::delay(150);
+  claw2.moveVelocity(-127);
+  polynomial(10, 60);
+  claw2.moveVelocity(0);
+  dr4bControl(26.5);
+  pros::delay(150);
+  polynomial(17.5, 70);
+  claw2.moveVelocity(-127);
+  dr4bControl2(-26.5);
+  pros::delay(1000);
+  claw2.moveVelocity(0);
+  /*polynomial(6, 80);
   claw2.moveVelocity(0);
   polynomial(20, 127);
   dr4bControl(20.0);
   polynomial(3, 80);
-  claw2.moveVelocity(127);
+  claw2.moveVelocity(-127);
   dr4bControl(-10);
-  claw2.moveVelocity(0);
+  claw2.moveVelocity(0);*/
   //polyTurn(140, 69)
   //polynomial();
   //dr4bControl(4.0);
