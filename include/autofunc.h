@@ -57,6 +57,36 @@ void polynomial(float distance, int max_power){
     left2.moveVelocity(0);
 }
 
+void polynomialB(float distance, int max_power)
+{
+    distance = distance + .0451 * distance - .427;
+    rightEF2.reset();
+    leftEF2.reset();
+    float dist_traveled_right = 0;
+    float dist_traveled_left = 0;
+    int power_right;
+    int power_left;
+    while ((dist_traveled_right < distance / 2.0) || (dist_traveled_left < distance / 2.0))
+    {
+        dist_traveled_right = -1 * rightEF2.get() * (3.14159265 / 180) * 2.125;
+        dist_traveled_left = -1 * leftEF2.get() * (3.14159265 / 180) * 2.125;
+        power_right = (dist_traveled_right * 2 * (max_power - 30)) / distance + 30;
+        power_left = (dist_traveled_left * 2 * (max_power - 30)) / distance + 30;
+        right2.moveVelocity(-1 *power_right);
+        left2.moveVelocity(-1 * power_left);
+    }
+    while (dist_traveled_right < distance || dist_traveled_left < distance)
+    {
+        dist_traveled_right = -1 *rightEF2.get() * (3.14159265 / 180) * 2.125;
+        dist_traveled_left = -1 * leftEF2.get() * (3.14159265 / 180) * 2.125;
+        power_right = (dist_traveled_right * 2 * (10 - max_power)) / distance + 2 * max_power - 10;
+        power_left = (dist_traveled_left * 2 * (10 - max_power)) / distance + 2 * max_power - 10;
+        right2.moveVelocity(-1 * power_right);
+        left2.moveVelocity(-1 * power_left);
+    }
+    right2.moveVelocity(0);
+    left2.moveVelocity(0);
+}
 void polyTurn(float angle, int max, float scale){
     float angle_traveled = 0;
     int power;
