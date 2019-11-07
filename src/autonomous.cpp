@@ -4,10 +4,13 @@
 using namespace okapi;
 void autonomous()
 {
-  dr4bL2.setBrakeMode(AbstractMotor::brakeMode::hold);  
+  dr4bL2.setBrakeMode(AbstractMotor::brakeMode::hold);
   dr4bR2.setBrakeMode(AbstractMotor::brakeMode::hold);
   dr4bL2.setReversed(true);
   right2.setReversed(true);
+
+
+  /*BLUE SIDE ------------------------------------------------------*/
   //dr4bControl(63, 1000);
   releaseClaw();
   pros::delay(100);
@@ -30,14 +33,55 @@ void autonomous()
   claw2.moveVelocity(0);
   pros::delay(100);
   claw2.moveVelocity(50);
-  polynomialB(32.0, 150);
+  polynomialB(22.0, 150);//not tested
   polyTurn(95, 75, 1);
+  dr4bControl2(10.0);
+  polynomial(10, 70);
+  //claw??
+  dr4bControl(-10.0);
+  polynomial(8, 80);
+  polyTurn(95, 75, 1);
+  polynomial(5.0, 80);
+  claw2.moveVelocity(-127);
+  dr4bControl(15.0);
+  pros::delay(1000);
+  polynomialB(9.0, 127);
+  claw2.moveVelocity(0);
+
+
+  /*RED SIDE -------------------------------------------------------*/
+  /*
+  releaseClaw();
+  pros::delay(100);
+  //dr4bControl(4.0);
+  pros::delay(300);
+  polynomial(3, 50);
+  dr4bControl(10.0);
+  pros::delay(1000);
+  dr4bControl(-8.0);
+  pros::delay(150);
+  claw2.moveVelocity(-127);
+  polynomial(10, 60);
+  claw2.moveVelocity(0);
+  dr4bControl(26.5);
+  pros::delay(150);
+  polynomial(19, 70);
+  claw2.moveVelocity(-127);
+  dr4bControl2(-26.5);
+  pros::delay(1500);
+  claw2.moveVelocity(0);
+  pros::delay(100);
+  claw2.moveVelocity(50);
+  polynomialB(32.0, 150);
+  polyTurn(-95, 75, 1);
   polynomial(33.0, 130);
   claw2.moveVelocity(-127);
   dr4bControl(15.0);
   pros::delay(1000);
   polynomialB(9.0, 127);
   claw2.moveVelocity(0);
+  */
+  /*JUNK CODE?????????????*/
   /*polynomial(6, 80);
   claw2.moveVelocity(0);
   polynomial(20, 127);
@@ -56,7 +100,7 @@ void autonomous()
   //polyTurn(90, 100, 1);
   //pros::lcd::set_text(1, "Exit PID");
   //dr4bControl(10.0);
-  
+
 /*
   //PIDsimple2.moveDistance(24_in*1.106);
   PIDsimple2.moveDistance(24_in);
