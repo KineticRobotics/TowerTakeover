@@ -37,7 +37,7 @@ auto chassis2 = ChassisControllerFactory::create(
 );
 Motor dr4bL2 = 15;
 Motor dr4bR2 = 16;
-Motor claw2 = 8;
+Motor claw2 = 7;
 auto dr4bLe2 = IntegratedEncoder(15);
 auto dr4bRe2 = IntegratedEncoder(16);
 
@@ -48,7 +48,7 @@ ControllerButton armUpButton2(ControllerDigital::R1);
 ControllerButton armDownButton2(ControllerDigital::R2);
 ControllerButton clawIn2(ControllerDigital::L1);
 ControllerButton clawOut2(ControllerDigital::L2);
-Motor armMotor2 = 8_rmtr;
+Motor armMotor2 = 7_rmtr;
 
 //most simple PID initiation (don't know whether to use std and dont know whether to use create or createPTR)
 double ikP = .001;
