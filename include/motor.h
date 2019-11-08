@@ -37,7 +37,7 @@ auto chassis = ChassisControllerFactory::create(
 
 Motor dr4bL = 15;
 Motor dr4bR = 16;
-Motor claw = 8;
+Motor claw = 7;
 auto dr4bLe = IntegratedEncoder(15);
 auto dr4bRe = IntegratedEncoder(16);
 
@@ -53,7 +53,7 @@ auto dr4b = ChassisControllerFactory::create(
 ControllerButton clawOut(ControllerDigital::L1);
 ControllerButton holdHalf(ControllerDigital::R1);
 ControllerButton holdQuarter(ControllerDigital::R2);
-Motor armMotor = 8_rmtr;
+Motor armMotor = 7_rmtr;
 
 //most simple PID initiation (don't know whether to use std and dont know whether to use create or createPTR)
 auto PIDsimple = ChassisControllerFactory::create(left, right, AbstractMotor::gearset::green,{WHEEL_DIAMETER, CHASSIS_WIDTH});
