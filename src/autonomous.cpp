@@ -19,7 +19,7 @@ void autonomous()
   claw2.moveVelocity(-127);
   polynomial(10, 70);
   claw2.moveVelocity(0);
-  pros::delay(250);
+  pros::delay(250); 
   dr4bControl(28.0);
   pros::delay(150);
   polynomial(19, 120);
@@ -30,32 +30,13 @@ void autonomous()
   pros::delay(100);
   claw2.moveVelocity(50);
   polynomialB(32.0, 150);
-  polyTurn(95, 75, 1);
+  polyTurnReverse(95, 75, 1);
   polynomial(33.0, 150);
   claw2.moveVelocity(-127);
   dr4bControl(15.0);
   pros::delay(800);
   polynomialB(9.0, 127);
   claw2.moveVelocity(0);
-  /*polynomial(6, 80);
-  claw2.moveVelocity(0);
-  polynomial(20, 127);
-  dr4bControl(20.0);
-  polynomial(3, 80);
-  claw2.moveVelocity(-127);
-  dr4bControl(-10);
-  claw2.moveVelocity(0);*/
-  //polyTurn(140, 69)
-  //polynomial();
-  //dr4bControl(4.0);
-  //PIDsimple2.moveDistanceAsync(25_in);
-  //polynomial(25.0, 127);
-  //PIDsimple2.turnAngle(90_deg);
-  //polyTurn(180, 127, .95);
-  //polyTurn(90, 100, 1);
-  //pros::lcd::set_text(1, "Exit PID");
-  //dr4bControl(10.0);
-  
 /*
   //PIDsimple2.moveDistance(24_in*1.106);
   PIDsimple2.moveDistance(24_in);
@@ -91,4 +72,6 @@ void autonomous()
   PIDsimple2.moveDistance(-5_in); //move backwards
 
  */
+
+
 }
