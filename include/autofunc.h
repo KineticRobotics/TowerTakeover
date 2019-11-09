@@ -107,3 +107,27 @@ void polyTurn(float angle, int max, float scale){
     left2.moveVelocity(0);
     right2.moveVelocity(0);
 }
+
+void polyTurnReverse(float angle, int max, float scale)
+{
+    float angle_traveled = 0;
+    int power;
+    gyro.reset();
+    scale = scale*-1;
+    while (angle_traveled < angle / 2.0)
+    {
+        angle_traveled = gyro.get() * scale;
+        power = ((2 * (max - 40)) / angle) * angle_traveled + 40;
+        left2.moveVelocity(-1 * power);
+        right2.moveVelocity(power);
+    }
+    while (angle_traveled < angle)
+    {
+        angle_traveled = gyro.get() * scale;
+        power = ((2 * (20 - max)) / angle) * angle_traveled + 2 * max - 20;
+        left2.moveVelocity(-1 * power);
+        right2.moveVelocity(power);
+    }
+    left2.moveVelocity(0);
+    right2.moveVelocity(0);
+}
