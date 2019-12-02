@@ -3,7 +3,7 @@
 const auto BAR = 14.5;
 using namespace okapi;
 //Aditya said don't use this
-void dr4bControl(float inches)
+void dr4bControlA(float inches)
 {
     float inchesUp = 7.0*inches/2.0;
     float radians = inchesUp/BAR;
@@ -52,7 +52,7 @@ void polynomial(float distance, int max_power){
         power_left = (dist_traveled_left * 2 * (10-max_power)) / distance + 2*max_power -10;
         right2.moveVelocity(power_right);
         left2.moveVelocity(power_left);
-    } 
+    }
     right2.moveVelocity(0);
     left2.moveVelocity(0);
 }
