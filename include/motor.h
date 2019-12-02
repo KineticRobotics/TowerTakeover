@@ -38,6 +38,7 @@ auto chassis = ChassisControllerFactory::create(
 Motor dr4bL = 15;
 Motor dr4bR = 16;
 Motor claw = 7;
+Motor strafe = 4;
 auto dr4bLe = IntegratedEncoder(15);
 auto dr4bRe = IntegratedEncoder(16);
 
